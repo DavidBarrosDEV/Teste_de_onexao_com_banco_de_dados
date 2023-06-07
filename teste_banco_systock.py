@@ -1,9 +1,9 @@
-import tkinter as tk
 import psycopg2
+import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 
-
+#David Barros Soares - DevOPs Enginner
 
 def executar_comando():
     comando = entrada_comando.get()
@@ -82,6 +82,18 @@ janela.title("Teste de Comando e Conexão")
 janela.geometry("500x400")
 janela.configure(background='dark blue')
 
+
+
+
+imagem = tk.PhotoImage(file="logo.png")  
+
+# Criar um rótulo para exibir a imagem
+rotulo_imagem = tk.Label(janela, image=imagem)
+rotulo_imagem.place(x=0, y=0, anchor="nw")  # Define a posição no canto superior esquerdo (coordenadas x=0, y=0)
+
+
+
+
 # Criação dos widgets
 titulo = tk.Label(janela, text="Teste de Comando e Conexão", font=("Arial", 16), bg="dark blue", fg="white")
 titulo.pack(pady=10)
@@ -111,21 +123,22 @@ label_banco_dados.pack()
 entrada_banco_dados = tk.Entry(janela)
 entrada_banco_dados.pack()
 
-botao_teste_conexao = tk.Button(janela, text="Testar Conexão", command=teste_conexao)
+botao_teste_conexao = tk.Button(janela, text="Testar Conexão", command=teste_conexao, bg="green")
 botao_teste_conexao.pack(pady=10)
 
-botao_recuperar_tabelas = tk.Button(janela, text="Recuperar Tabelas", command=recuperar_tabelas)
+
+botao_recuperar_tabelas = tk.Button(janela, text="Recuperar Tabelas", command=recuperar_tabelas, bg="#f8e937")
 botao_recuperar_tabelas.pack(pady=10)
 
 label_comando = tk.Label(janela, text="Comando:", bg="dark blue", fg="white")
 label_comando.pack()
-entrada_comando = tk.Entry(janela)
+entrada_comando = tk.Entry(janela,  width=80, justify='center')
 entrada_comando.pack()
 
 label_selecionar_comando = tk.Label(janela, text="Selecionar Comando:", bg="dark blue", fg="white")
 label_selecionar_comando.pack()
 selecionar_comando = tk.StringVar()
-selecionar_comando.set("SELECT * FROM tabela")  # Comando SQL padrão
+selecionar_comando.set("SELECT * FROM tabela") 
 opcoes_comando = tk.OptionMenu(janela, selecionar_comando, 
                                "SELECT * FROM tabela",
                                "INSERT INTO tabela (coluna1, coluna2) VALUES (valor1, valor2)",
@@ -148,3 +161,6 @@ tabela_resultado.heading("col1", text="Tabela")
 tabela_resultado.pack(pady=10)
 
 janela.mainloop()
+
+
+
